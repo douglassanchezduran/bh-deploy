@@ -1,0 +1,16 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar la carpeta de build de Vite
+dist/
+build/
+
+# Ignorar toda la carpeta de Tauri (Rust, binarios, etc)
+src-tauri/
+
+# Ignorar archivos de logs y binarios
+*.log
+*.rmeta
+
+# Ignorar archivos de control de versiones
+.git/
