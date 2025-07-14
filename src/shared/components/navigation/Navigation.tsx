@@ -10,7 +10,7 @@ import NavigationMenu from './NavigationMenu';
 const MENU_ITEMS: MenuItem[] = [
   {
     key: 'home',
-    label: 'Home',
+    label: 'Inicio',
     path: '/',
     icon: <Home size={18} />,
   },

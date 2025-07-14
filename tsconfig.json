@@ -12,6 +12,9 @@
       "@layout/*": ["src/shared/layout/*"],
       "@assets/*": ["src/shared/assets/*"],
       "@utils/*": ["src/shared/utils/*"],
+      "@stores/*": ["src/shared/stores/*"],
+      "@hooks/*": ["src/shared/hooks/*"],
+      "@repositories/*": ["src/shared/repositories/*"],
       "@app-types/*": ["src/shared/types/*"],
       "@features/*": ["src/features/*"]
     },

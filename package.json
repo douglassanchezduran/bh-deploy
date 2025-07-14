@@ -10,14 +10,16 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@heroui/react": "^2.7.10",
+    "@heroui/react": "^2.7.11",
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2",
+    "firebase": "^11.10.0",
     "framer-motion": "^12.17.0",
     "lucide-react": "^0.515.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router": "^7.6.2"
+    "react-router": "^7.6.2",
+    "ts-results": "^3.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
@@ -38,6 +40,7 @@
     "globals": "^16.2.0",
     "postcss": "^8.5.5",
     "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.13",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.34.0",

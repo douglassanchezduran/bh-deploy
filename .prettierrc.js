@@ -6,4 +6,5 @@ export default {
   trailingComma: 'all',
   endOfLine: 'auto',
   tabWidth: 2,
+  plugins: ['prettier-plugin-tailwindcss'],
 };
