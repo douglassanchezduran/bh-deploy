@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Button } from '@heroui/react';
-import { UserPlus } from 'lucide-react';
+import { Sword, UserPlus } from 'lucide-react';
 
 import Header from '@components/Header';
 import ImageModal from '@features/fighters/components/ImageModal';
@@ -113,11 +113,12 @@ const FighterScreen: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-zinc-900 to-zinc-950 pt-20">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gradient-to-br from-zinc-900 to-zinc-950 pt-8">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <Header
           title="Competidores"
           description="Los guerreros más temidos del arena."
+          icon={<Sword size={32} className="text-white" />}
         />
 
         <div className="mb-8 text-center">

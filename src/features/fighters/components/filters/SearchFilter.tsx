@@ -25,7 +25,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ value, onChange }) => {
         }
         className="max-w-full"
         classNames={{
-          input: '!text-white',
+          input: '!text-white placeholder:!text-white',
           inputWrapper:
             'bg-zinc-700 border-zinc-600 !bg-zinc-700 !border-zinc-600 !focus:bg-zinc-700 !focus:border-zinc-600 !hover:bg-zinc-700 !hover:border-zinc-600',
         }}

@@ -39,7 +39,7 @@ const Logo: React.FC = () => {
             <div className="relative z-10 transition-all duration-700 group-hover:rotate-12 group-hover:scale-110">
               <img
                 src="/logo-w.png"
-                alt="HARD"
+                alt="BEATHARD"
                 className="h-20 w-auto brightness-100 drop-shadow-2xl filter transition-all duration-500 group-hover:brightness-125 group-hover:drop-shadow-[0_0_40px_rgba(218,41,44,1)]"
               />
             </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import React, { useState, useCallback } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import { Home, Sword, Trophy } from 'lucide-react';
 import { Navbar } from '@heroui/react';
 
@@ -21,9 +21,9 @@ const MENU_ITEMS: MenuItem[] = [
     icon: <Sword size={18} />,
   },
   {
-    key: 'combat',
+    key: 'battle-arena',
     label: 'Arena de Combate',
-    path: '/combat',
+    path: '/battle-arena',
     icon: <Trophy size={18} />,
   },
 ];
@@ -35,19 +35,31 @@ interface Props {
 const Navigation: React.FC<Props> = ({ className = '' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleNavigation = (item: MenuItem) => {
-    navigate(item.path);
-    setIsMenuOpen(false);
-  };
+  const handleNavigation = useCallback(
+    (item: MenuItem) => {
+      navigate(item.path);
+      setIsMenuOpen(false);
+    },
+    [navigate],
+  );
 
-  const getCurrentPage = () => {
+  const currentPath = location.pathname;
+  const currentItem = MENU_ITEMS.find(item => item.path === currentPath);
+  const currentPage = currentItem?.key || 'home';
+
+  /* const getCurrentPage = useCallback(() => {
     const currentPath = location.pathname;
     const currentItem = MENU_ITEMS.find(item => item.path === currentPath);
     return currentItem?.key || 'home';
-  };
+  }, [location.pathname]);
 
-  const currentPage = getCurrentPage();
+  const [currentPage, setCurrentPage] = useState(getCurrentPage());
+
+  useEffect(() => {
+    setCurrentPage(getCurrentPage());
+  }, [getCurrentPage]); */
 
   return (
     <Navbar

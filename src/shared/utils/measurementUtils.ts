@@ -24,3 +24,18 @@ export function cmToFeetInches(cm: number): string {
 export function kgToLbs(kg: number): number {
   return Math.round(kg * 2.20462);
 }
+
+/**
+ * Calcula el Índice de Masa Corporal (IMC)
+ * @param kg Peso en kilogramos
+ * @param cm Altura en centímetros
+ * @returns El valor del IMC, redondeado al entero más cercano.
+ */
+export function imc(kg: number, cm: number): string {
+  if (cm === 0) return '0';
+
+  const heightMeters = cm / 100;
+  const result = kg / Math.pow(heightMeters, 2);
+
+  return result.toFixed(1);
+}

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 import { HeroUIProvider, ToastProvider } from '@heroui/react';
 
-import App from './App';
+import MainRoutes from './MainRoutes';
 import './main.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <HeroUIProvider>
       <ToastProvider />
       <BrowserRouter>
-        <App />
+        <MainRoutes />
       </BrowserRouter>
     </HeroUIProvider>
   </React.StrictMode>,

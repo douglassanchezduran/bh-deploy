@@ -7,19 +7,27 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "build:static": "cd src-tauri/static && npm run build",
+    "tauri:dev:debug": "npm run build:static && RUST_LOG=debug tauri dev",
+    "tauri:dev:info": "npm run build:static && RUST_LOG=info tauri dev",
+    "tauri:dev:error": "npm run build:static && RUST_LOG=error tauri dev",
+    "tauri:build:production": "npm run build:static && RUST_LOG=error tauri build"
   },
   "dependencies": {
     "@heroui/react": "^2.7.11",
     "@tauri-apps/api": "^2",
-    "@tauri-apps/plugin-opener": "^2",
+    "@tauri-apps/plugin-opener": "^2.4.0",
     "firebase": "^11.10.0",
     "framer-motion": "^12.17.0",
     "lucide-react": "^0.515.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^7.6.2",
-    "ts-results": "^3.3.0"
+    "ts-results": "^3.3.0",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

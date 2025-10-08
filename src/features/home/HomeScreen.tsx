@@ -9,7 +9,7 @@ const HomeScreen: React.FC = () => {
   const navigate = useNavigate();
 
   const goToFighters = () => navigate('/fighters');
-  const goToCombat = () => navigate('/combat');
+  const goToBattleArena = () => navigate('/battle-arena');
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-zinc-950">
@@ -52,7 +52,7 @@ const HomeScreen: React.FC = () => {
               size="lg"
               startContent={<Play size={28} />}
               className="transform bg-primary-500 px-12 py-8 text-xl font-bold text-white shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-primary-600 hover:shadow-primary-500/40"
-              onPress={goToCombat}
+              onPress={goToBattleArena}
             >
               Comenzar Combate
             </Button>

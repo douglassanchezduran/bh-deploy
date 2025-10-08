@@ -1,4 +1,4 @@
-import { cmToFeetInches, kgToLbs } from '@utils/measurementUtils';
+import { cmToFeetInches, kgToLbs, imc } from '@utils/measurementUtils';
 import { Ruler, Target, Weight } from 'lucide-react';
 import React from 'react';
 import { Fighter } from '../models/Fighter';
@@ -49,7 +49,7 @@ const FighterItemPhysicalData: React.FC<Props> = ({ fighter }) => {
           </div>
           <div className="text-right">
             <div className="text-sm font-semibold text-white">
-              {(fighter.weight / Math.pow(fighter.height / 100, 2)).toFixed(1)}
+              {imc(fighter.weight, fighter.height)}
             </div>
             {/* <div className="text-xs text-zinc-500">
                   {(() => {

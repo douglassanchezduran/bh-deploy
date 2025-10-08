@@ -55,6 +55,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
                     isIconOnly
                     size="sm"
                     variant="flat"
+                    aria-label="Abrir en nueva pestaña"
                     className="bg-zinc-800/60 text-white backdrop-blur-sm hover:bg-zinc-700/80"
                     onPress={handleOpenInNewTab}
                     title="Abrir en nueva pestaña"
@@ -65,6 +66,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
                     isIconOnly
                     size="sm"
                     variant="flat"
+                    aria-label="Cerrar modal"
                     className="bg-zinc-800/60 text-white backdrop-blur-sm hover:bg-zinc-700/80"
                     onPress={onClose}
                     title="Cerrar"

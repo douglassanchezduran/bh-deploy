@@ -178,6 +178,7 @@ const FighterFormModal: React.FC<Props> = ({
                   <Select
                     label="Nacionalidad"
                     labelPlacement="outside"
+                    aria-label="Seleccionar nacionalidad"
                     placeholder="Seleccionar país"
                     errorMessage="La nacionalidad es obligatoria"
                     name="country"
