@@ -109,17 +109,11 @@ async fn find_ble_device_by_id(device_id: &str) -> BleResult<(Device, String)> {
                         let adv_data = &discovered_device.adv_data;
                         
                         if let Some(local_name) = &adv_data.local_name {
-                            if local_name.contains("BH-") {
-                                let generated_id = format!("{}_{}", 
-                                    local_name.replace("BH-", ""), 
-                                    device.id().to_string().chars().take(8).collect::<String>()
-                                );
-                                
-                                if generated_id == device_id {
+                            if local_name.contains("BH-")                                
+                                && device.id().to_string() == device_id {
                                     info!(device_id = %device_id, device_name = %local_name, "✅ Dispositivo encontrado");
                                     return Ok((device, local_name.clone()));
                                 }
-                            }
                         }
                     }
                     None => break,

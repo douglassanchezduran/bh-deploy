@@ -53,26 +53,20 @@ pub async fn scan_available_devices() -> Result<Vec<BleDevice>, String> {
                     Some(discovered_device) => {
                         let adv_data = &discovered_device.adv_data;
                         
-                        // Early filtering - verificar nombre primero (más eficiente)
+                        // Verificar primero si es un dispositivo BH
                         let local_name = match &adv_data.local_name {
                             Some(name) if name.contains("BH-") => name,
-                            _ => continue, // Skip si no es nuestro dispositivo
+                            _ => continue,
                         };
                         
                         let device = discovered_device.device;
                         let device_address = device.id().to_string();
+                        let device_id = device_address.clone();
                         
                         // Evitar duplicados usando HashSet
-                        if !seen_devices.insert(device_address.clone()) {
+                        if !seen_devices.insert(device_id.clone()) {
                             continue;
                         }
-                        
-                        // Generar ID único combinando nombre y parte del address
-                        let device_id = format!("{}_{}", 
-                            local_name.replace("BH-", ""), 
-                            // device_address.chars().take(8).collect::<String>()
-                            device_address
-                        );
                         
                         // Determinar tipo de extremidad y nombre traducido
                         let limb_type = determine_limb_type_by_pattern(local_name);
@@ -313,16 +307,9 @@ async fn find_ble_device_by_id(device_id: &str) -> BleResult<(bluest::Device, St
                         let adv_data = &discovered_device.adv_data;
                         
                         if let Some(local_name) = &adv_data.local_name {
-                            if local_name.contains("BH-") {
-                                let generated_id = format!("{}_{}", 
-                                    local_name.replace("BH-", ""), 
-                                    device.id().to_string().chars().take(8).collect::<String>()
-                                );
-                                
-                                if generated_id == device_id {
-                                    info!(device_id = %device_id, device_name = %local_name, "✅ Dispositivo encontrado");
-                                    return Ok((device, local_name.clone()));
-                                }
+                            if local_name.contains("BH-") && device.id().to_string() == device_id {
+                                info!(device_id = %device_id, device_name = %local_name, "✅ Dispositivo encontrado");
+                                return Ok((device, local_name.clone()));
                             }
                         }
                     }
