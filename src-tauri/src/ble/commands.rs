@@ -70,7 +70,8 @@ pub async fn scan_available_devices() -> Result<Vec<BleDevice>, String> {
                         // Generar ID único combinando nombre y parte del address
                         let device_id = format!("{}_{}", 
                             local_name.replace("BH-", ""), 
-                            device_address.chars().take(8).collect::<String>()
+                            // device_address.chars().take(8).collect::<String>()
+                            device_address
                         );
                         
                         // Determinar tipo de extremidad y nombre traducido

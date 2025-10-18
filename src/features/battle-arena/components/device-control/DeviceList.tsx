@@ -322,6 +322,11 @@ const DeviceList: React.FC<Props> = ({
                       {device.limb_name || 'Desconocido'}
                     </Chip>
 
+                    {/* ID del dispositivo */}
+                    <span className="font-mono text-xs text-zinc-400">
+                      ID: {device.id}
+                    </span>
+
                     {device.rssi && (
                       <span className="text-xs text-zinc-500">
                         Señal: {device.rssi} dBm
