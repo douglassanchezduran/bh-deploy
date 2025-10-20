@@ -15,14 +15,16 @@ use crate::broadcast_ws::ws_broadcast;
 pub struct SimpleEventDetector {
     config: SimpleDetectionConfig,
     competitor_info: Option<CompetitorInfo>,
+    limb_type: LimbType,
     last_event_time: u64, // Timestamp del último evento detectado
 }
 
 impl SimpleEventDetector {
-    pub fn new() -> Self {
+    pub fn new(limb_type: LimbType) -> Self {
         Self {
             config: SimpleDetectionConfig::default(),
             competitor_info: None,
+            limb_type,
             last_event_time: 0,
         }
     }
@@ -34,7 +36,8 @@ impl SimpleEventDetector {
 
     pub fn detect_event(&mut self, data: &ImuData) -> Option<SimpleCombatEvent> {
         let competitor = self.competitor_info.as_ref()?;
-        let limb_type = LimbType::from_id(data.limb_id)?;
+        // let limb_type = LimbType::from_id(data.limb_id)?;
+        let limb_type = self.limb_type;
 
         // Sistema de cooldown para evitar eventos duplicados
         let current_time = data.timestamp;

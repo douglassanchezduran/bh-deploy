@@ -134,7 +134,7 @@ fn setup_competitor_detector(competitor_info: CompetitorInfo, competitor_name: &
         "🔧 Configurando detector para competidor"
     );
     
-    let mut detector = SimpleEventDetector::new();
+    let mut detector = SimpleEventDetector::new(limb_type);
     detector.set_competitor_info(competitor_info);
     Arc::new(Mutex::new(detector))
 }
@@ -142,7 +142,7 @@ fn setup_competitor_detector(competitor_info: CompetitorInfo, competitor_name: &
 /// Configura un detector básico sin información de competidor
 pub fn setup_basic_detector(limb_type: LimbType) -> Arc<Mutex<SimpleEventDetector>> {
     debug!(limb_type = ?limb_type, "🔧 Configurando detector básico");
-    Arc::new(Mutex::new(SimpleEventDetector::new()))
+    Arc::new(Mutex::new(SimpleEventDetector::new(limb_type)))
 }
 
 /// Lanza una tarea para manejar un dispositivo BLE
