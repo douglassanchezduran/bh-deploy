@@ -140,7 +140,8 @@ impl SimpleEventDetector {
         };
 
         // Calcular masa de la extremidad
-        let limb_mass = body_weight * mass_percentage;
+        // let limb_mass = body_weight * mass_percentage;
+        let limb_mass = body_weight;
 
         // Calcular velocidad realista basada en la extremidad y intensidad
         let intensity_factor = (acc_magnitude / 2.0).min(2.0); // Factor de intensidad entre 1.0 y 2.0
@@ -150,7 +151,8 @@ impl SimpleEventDetector {
         let acceleration = acc_magnitude * 9.81;
 
         // Calcular fuerza usando masa antropométrica
-        let force = limb_mass * acceleration * self.config.joint_stiffness_factor;
+        // let force = limb_mass * acceleration * self.config.joint_stiffness_factor;
+        let force = limb_mass * acceleration;
 
         (velocity, acceleration, force)
     }
